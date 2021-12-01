@@ -1,10 +1,17 @@
-const isPrime = function(x){
-	if(x>1000) throw "to big"
-	for(let i = 2; i <= (x-1); i++) {
-        if(x%i == 0) return false
+function isPrime(n) {
+    if (n <= 1){
+        return false;
     }
-    return true
+
+    for (let i=2; i<n/2; i++) {
+        if (n%i == 0) {
+            return false;
+        }
+    }
+
+    return true;
 }
+
 
 const fibo = function(x){
     if (x <= 1) return 1

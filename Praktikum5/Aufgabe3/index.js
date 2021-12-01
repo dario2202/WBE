@@ -1,4 +1,4 @@
-function findTag(str) {
+const findTag = (str) => {
     const tagStartElement = '<';
     const tagEndElement = '>'
     let isStartTagFound = undefined;
@@ -15,10 +15,11 @@ function findTag(str) {
     return tag
   }
   
-  console.log(findTag("<header>Text</header"));
-  console.log(findTag("blabla <br> blabla"));
-  console.log(findTag(""));
-  console.log(findTag("Test ohne Tag"));
-  console.log(findTag("<html><bod><h1>Title</h1></bod></html>"));
-  console.log(findTag("Tag <<tag></tag>"));
-  console.log(findTag("Non ending Tag <tags"));
+  let fibonacci = (n) => {
+    if (n < 2) return n
+    else return fibonacci(n-1) + fibonacci(n-2)
+  }
+  
+  const equal = (n, m) => {
+    return n === m
+  }
