@@ -7,171 +7,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <script src="https://github.zhaw.ch/pages/bkrt/wbelabs/log.js"></script>
-    <script src="prime.js"></script>
-    <script src="fibonaci.js"></script>
-    <title>Praktika</title>
+    <title>Lab 02</title>
 </head>
 <body>
-    <h1>Exercises of praktika 2</h1>
-    <h1>Prime exercise</h1>
-<pre>
-    <code class="language-javascript">
-        function isPrime (n){
-            for (let index = 2; index < n; index++) {
-               if(n % index === 0) return false; //Return false if Modul 0
-           }
-           return true;
-        }
-        
-        
-        function isPrime2 (n){
-            for (let index = 2; index < n; index++) {
-               if(n % index === 0) return 0; //Return false if Modul 0
-           }
-           return 1;
-        }
-    </code>
-</pre>
-    <p><script>document.write("Ist 13 Prim? "+ isPrime(13))</script></p>
-    <p><script>document.write("Ist 13 Prim? "+ isPrime2(13))</script></p>
-    <p><script> document.write("Die Zahl 15 ist "+ isPrime(15))</script></p>
-    <p><script> document.write("Die Zahl 15 ist "+ isPrime2(15))</script></p>
 
-<h3>Ist es wichtig ob true/false oder 1/0 zurückgegeben wird?</h3>
-<p>
-    Die beiden Funktionen geben einen unterschiedlichen Wert zurück. Da aber eine implizite Typenkonvertierung passiert geben sie dennoch den gleichen Wert zurück. Hier ist ein Beispiel zu sehen:
-<pre>
-    <code class="language-javascript">
-        document.write("Output:")
-        document.write(isPrime(19)==isPrime2(19))
-    </code>
-</pre>
-    <script>
-        document.write("Output:")
-        document.write(isPrime(19)==isPrime2(19))
-    </script>
-</p>
-    <h1> Fibonacci Exercise (Exercise 4)</h1>
-    <h2>Subexercise a</h2>
-    <pre>
-        <code class="language-javascript">
-            function fibo (n) {
-                if(n === 0){
-                    return 0
-                }else if(n === 1){
-                    return 1
-                }else{
-                    return fibo(n-1) + fibo(n-2)
-                }
-            }
-        </code>
-    </pre>
-    <p><script>document.write("0 with Fibo: "+fibo(0))</script></p>
-    <p><script>document.write("1 with Fibo: "+fibo(1))</script></p>
-    <p><script> document.write("4 with Fibo: "+fibo(4))</script></p>
-    <p><script> document.write("10 with Fibo: "+fibo(10))</script></p>
-    <p><script> document.write("20 with Fibo: "+fibo(20))</script></p>
-    <h2>Subexercise b</h2>
-    <pre>
-        <code class="language-javascript">
-            const g = (1+ Math.sqrt(5))/2 //Goldener Schnitt
-            function fiboAdvanced(n){
-                return Math.round(Math.pow(g,n) / Math.sqrt(5))
-            }
-        </code>
-    </pre>
-    <p><script>document.write("0 Advanced Fibo method: "+ fiboAdvanced(0))</script></p>
-    <p><script>document.write("1 Advanced Fibo method: "+ fiboAdvanced(1))</script></p>
-    <p><script> document.write("4 Advanced Fibo method: "+ fiboAdvanced(4))</script></p>
-    <p><script> document.write("10 Advanced Fibo method: "+ fiboAdvanced(10))</script></p>
-    <p><script> document.write("20 Advanced Fibo method: "+ fiboAdvanced(20))</script></p>
-    <h2>Subexercise c</h2>
-    <pre>
-        <code class="language-javascript">
-            console.time("fibo 10")
-            fibo(10)
-            console.timeEnd("fibo 10")
+<h1>Beispiele für Lab-Abgabe</h1>
 
-            console.time("fibo Advanced 10")
-            fiboAdvanced(10)
-            console.timeEnd("fibo Advanced 10")
+<pre><code class="language-javascript">
 
-            //mit 30
-            console.time("fibo 30")
-            fibo(30)
-            console.timeEnd("fibo 30")
+//  Rekursive Implementierung der Fakultätsfunktion
+//  
+function faku (n) {
+    if (n < 2) return 1
+    else return n * faku(n - 1)
+}
 
-            console.time("fibo Advanced 30")
-            fiboAdvanced(30)
-            console.timeEnd("fibo Advanced 30")
+</code></pre>   
 
-            //mit 50 dauerts zu lange
-            console.log("fibo 50: Dauert zu lange mit Rekursion :-/")
-
-            console.time("fibo Advanced 50")
-            fiboAdvanced(50)
-            console.timeEnd("fibo Advanced 50")
-        </code>
-    </pre>
-    <h3>Output (Ist in den Developer-Tools unter Console zu finden -> Console.log())</h3>
-    <pre>
-        <code language="language-javascript">
-            fibo 10: 4.5ms
-            fibo Advanced 10: 0.028ms
-            fibo 30: 14.165ms
-            fibo Advanced 30: 0.011ms
-            fibo 50: Dauert zu lange mit Rekursion :-/
-            fibo Advanced 50: 0.009ms
-        </code>
-    </pre>
-    <p><script>
-        console.time("fibo 10")
-        fibo(10)
-        console.timeEnd("fibo 10")
-
-        console.time("fibo Advanced 10")
-        fiboAdvanced(10)
-        console.timeEnd("fibo Advanced 10")
-
-        //mit 30
-        console.time("fibo 30")
-        fibo(30)
-        console.timeEnd("fibo 30")
-
-        console.time("fibo Advanced 30")
-        fiboAdvanced(30)
-        console.timeEnd("fibo Advanced 30")
-
-        //mit 50 dauerts zu lange
-        console.log("fibo 50: Dauert zu lange mit Rekursion :-/")
-
-        console.time("fibo Advanced 50")
-        fiboAdvanced(50)
-        console.timeEnd("fibo Advanced 50")
-    </script></p>
-    <h2>Subexercise d</h2>
-    <pre>
-        <code class="language-javascript">
-            function fibonacciBigInt(n){
-                let summe = 0;
-                let erste = BigInt(0);
-                let zweite = BigInt(1);
-
-                for (let i = BigInt(2); i <= n; i += BigInt(1)) {
-                    summe = erste + zweite;
-                    erste = zweite;
-                    zweite = summe;
-                }
-
-                return summe;
-            }
-
-            console.log("fib(1000) = " + fibonacciBigInt(1000));
-        </code>
-    </pre>
-    
-    
-    <p><script> document.write("fib(1000) = " + fibonacciBigInt(1000))</script></p>
-<script>hljs.highlightAll()</script>
 </body>
-</html
+
+<script>
+
+    //  Rekursive Implementierung der Fakultätsfunktion
+    //  
+    function faku (n) {
+      if (n < 2) return 1
+      else return n * faku(n - 1)
+    }
+
+    log("Demo Fakultätsfunktion", "h2")
+    log('faku(0) = ' + faku(0))
+    log('faku(5) = ' + faku(5))
+    log('faku(10) = ' + faku(10))
+    
+</script>
+<script>hljs.highlightAll()</script>
+</html>
