@@ -1,4 +1,4 @@
 # WBE21
-Praktikas von WBE [Pages](https://github.zhaw.ch/pages/zuelldar/WBE21/)
+Praktikas von WBE [Pages](https://github.com/pages/dario2202/WBE/)
 
 
