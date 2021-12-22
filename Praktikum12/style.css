@@ -1,0 +1,49 @@
+div {
+    box-sizing: border-box;
+}
+
+.head {
+    margin: auto;
+    text-align: center;
+}
+
+.info {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.board {
+    display: table;
+    width: auto;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.row {
+    display: table-row;
+    width: auto;
+    height: auto;
+}
+
+.field {
+    float: left;
+    width: 7vw;
+    height: 7vw;
+    display: table-column;
+    border: 1px solid black;
+}
+
+.piece {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    margin: 1vw;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}

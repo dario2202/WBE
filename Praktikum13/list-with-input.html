@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <title>Demo App</title>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"></div>
+  
+  <script type="module">
+import { render, useState } from "./suiweb.js";  
+   
+const initState = { elements: [ {name: "Wan"}, {name: "Kha"}]}
+
+const ElementList = ({ elements }) => ["ul", ...elements.map((i) => ["li", i.name])]
+
+const App = () => {
+  let [text, setText] = useState("textInput", 1, 2)
+  let [list, setList] = useState("list", 1, initState)
+
+  const clearList = (e) => {
+    let elmements = list.elements
+    setList((s) => ({ ...s, elements: [] }))
+  }
+
+  const addToList = (e) => {
+    let elmement = {
+      name: text,
+    }
+    setList((s) => ({ ...s, elements: [...s.elements, elmement] }))
+  }
+
+  const updateInput = (e) => {
+    let inputValue = parseInt(e.target.value)
+    if (Number.isInteger(inputValue)) {
+      setText(() => inputValue)
+    } else {
+      setText(() => text)
+    }
+  }
+
+    return [
+      "div",
+      { style: "border-style: solid; border-color: blue; padding:1em;" },
+      ["h1", "your input:"],
+      ["input", { oninput: updateInput, value: text, style: "margin: 0.25em" }, "test"],
+      ["button", { onclick: () => addToList(), style: "margin: 0.25em" }, "save"],
+      ["button", { onclick: () => clearList(), style: "margin: 0.25em" }, "clear list"],
+      ["h1", "Liste:"],
+      [ ElementList, { elements: list.elements } ]
+    ]
+}
+
+const element = [App]
+
+const container = document.getElementById("root")
+render(element, container)
+</script>
+</body>
+</html>

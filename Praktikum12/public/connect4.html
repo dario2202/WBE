@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vier gewinnt</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="scriptDump.js"></script>
+
+</head>
+<body>
+
+  <div class="app"></div>
+  
+  <div class="controls">
+    <button onclick="undoState()">Undo</button>
+    <button onclick="loadState()">Load</button>
+    <button onclick="saveState()">Save</button>
+  </div>
+
+  <script type="module">
+    initGame()
+  </script>
+
+</body>
+</html>
